@@ -3,32 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>zsff1 的個人小站</title>
+    <title>zsff1 的空間</title>
     <style>
         body {
             font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
+            min-height: 100vh;
+            background-image: url('https://vrm.dev');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
         }
-        .container {
+
+        .main-container {
+            max-width: 850px;
+            width: 95%;
+            margin: 40px auto 100px auto;
+        }
+
+        .site-header {
             text-align: center;
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
         }
-        h1 { color: #ff7096; margin-bottom: 20px; }
-        p { color: #666; line-height: 1.8; font-size: 16px; }
-        footer {
-            position: absolute;
-            bottom: 30px;
+
+        .anime-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        h2 {
+            margin-top: 0;
+            padding-bottom: 10px;
+        }
+        
+        .madoka-title { color: #d23669; border-bottom: 2px solid #ff7096; }
+        .gup-title { color: #2a5270; border-bottom: 2px solid #4a90e2; }
+
+        p {
+            color: #444;
+            line-height: 1.8;
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        .tag-container {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-right: 8px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .tag-madoka { background-color: #ff7096; }
+        .tag-gup { background-color: #4a90e2; }
+
+        .team-image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .team-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 3px solid #fff;
+        }
+        .image-caption {
             font-size: 14px;
+            color: #555;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .character-section {
+            margin-top: 25px;
+        }
+        .character-card {
+            background: rgba(255, 255, 255, 0.6);
+            border-left: 5px solid #ccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+        .char-madoka { border-left-color: #ffb7c5; }
+        .char-homura { border-left-color: #a48fbe; }
+        .char-sayaka { border-left-color: #8faecf; }
+        .char-mami { border-left-color: #f3e5ab; }
+        .char-kyoko { border-left-color: #e88888; }
+        
+        .character-name {
+            font-weight: bold;
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+        .character-meta {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .table-title {
+            color: #2a5270;
+            font-size: 18px;
+            margin: 25px 0 12px 0;
+            font-weight: bold;
+        }
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+            text-align: left;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background-color: #4a90e2;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafe;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
         }
         footer a {
             color: #ff7096;
@@ -39,10 +175,149 @@
 </head>
 <body>
 
-    <div class="container">
-        <h1>歡迎來到 zsff1 的個人空間</h1>
-        <p>這是一個正在建設中的神祕站點 ( ﾟ∀ﾟ)つ </p>
-        <p>未來將在這裡分享個人生活與喜愛的文化！</p>
+    <div class="main-container">
+        <div class="site-header">
+            <h1>歡迎來到 zsff1 的空間</h1>
+        </div>
+
+        <!-- 魔法少女小圓 區塊 -->
+        <div class="anime-card">
+            <h2 class="madoka-title">魔法少女小圓（魔法少女まどか☆マギカ）</h2>
+            <p>
+                由動畫公司 SHAFT 製作、新房昭之執導、虛淵玄編劇的經典原創動畫。故事講述平凡的初中生鹿目圓，在邂逅了神祕生物「丘比」後，面臨了「只要許下願望，就能成為魔法少女」的契約抉擇。然而，隨著故事推進，隱藏在魔法少女美麗外表下的殘酷真相與絕望循環被一層層揭開。本作打破了傳統魔法少女作品的溫馨套路，以沉重的劇本和極具藝術感的魔女結界聞名，成為日本動畫史上獲獎最多、最具影響力的神作之一。
+            </p>
+            <div class="tag-container">
+                <span class="tag tag-madoka">黑暗奇幻</span>
+                <span class="tag tag-madoka">心理驚悚</span>
+                <span class="tag tag-madoka">新房昭之</span>
+                <span class="tag tag-madoka">虛淵玄</span>
+            </div>
+
+            <div class="team-image-container">
+                <img src="https://vrm.dev" alt="魔法少女小圓成員" class="team-image">
+                <div class="image-caption">核心主角陣容：命運交織的五位魔法少女</div>
+            </div>
+
+            <div class="character-section">
+                <div class="table-title">✨ 核心角色與契約願望清單</div>
+                
+                <div class="character-card char-madoka">
+                    <div class="character-name" style="color:#d23669;">鹿目圓（鹿目 まどか）</div>
+                    <div class="character-meta">🔮 代表色：粉紅色 | ⚔️ 武器：長弓</div>
+                    <p style="font-size:14px; margin:0;">性格溫柔內向，極具同理心。擁有歷史上最龐大的因果量。最終為了拯救所有時間線中因絕望化為魔女的魔法少女，許下了「消滅所有宇宙中誕生前的魔女」的願望，將自身昇華為超越時空的「圓環之理」概念。</p>
+                </div>
+
+                <div class="character-card char-homura">
+                    <div class="character-name" style="color:#66409e;">曉美焰（暁美 ほむら）</div>
+                    <div class="character-meta">🔮 代表色：紫色 | ⚔️ 武器：盾牌（時間操縱）、各式現代軍火</div>
+                    <p style="font-size:14px; margin:0;">神祕的轉學生，作風冷酷。真實身分是來自其他時間線的時間跳躍者。願望是「與鹿目圓重新相遇，不再成為受她保護的人，而是成為保護她的人」。為了打破小圓死亡或魔女化的命運，在同一個月份中無數次孤獨地輪迴。</p>
+                </div>
+
+                <div class="character-card char-sayaka">
+                    <div class="character-name" style="color:#2b6ba1;">美樹沙耶香（美樹 さやか）</div>
+                    <div class="character-meta">🔮 代表色：藍色 | ⚔️ 武器：西洋劍</div>
+                    <p style="font-size:14px; margin:0;">小圓的同班同學，正義感極強。為了治好青梅竹馬小提琴手恭介的手，許願「治好恭介的手」。然而因遭遇現實的殘酷背叛與自身正義感的崩潰，靈魂寶石（Soul Gem）被絕望染黑，最終成為劇中第一位展示魔女化真相的角色。</p>
+                </div>
+
+                <div class="character-card char-mami">
+                    <div class="character-name" style="color:#bfa01a;">巴麻美（巴 マミ）</div>
+                    <div class="character-meta">🔮 代表色：黃色 | ⚔️ 武器：線銃、緞帶</div>
+                    <p style="font-size:14px; margin:0;">就讀見瀧原中學三年級的前輩，作風優雅成熟。在瀕臨車禍死亡時為了活下去而許願。雖然表面上開朗可靠，內心極度孤獨軟弱。第三話遭遇突發的殘酷退場（斷頭），正式拉開了本作黑化沉重劇情的序幕。</p>
+                </div>
+
+                <div class="character-card char-kyoko">
+                    <div class="character-name" style="color:#c93b3b;">佐倉杏子（佐倉 杏子）</div>
+                    <div class="character-meta">🔮 代表色：紅色 | ⚔️ 武器：多節長槍</div>
+                    <p style="font-size:14px; margin:0;">外來城鎮的魔法少女，性格傲嬌豪爽、總是吃著零食。曾因替父親傳教許願導致家庭悲劇，從此奉行「只為自己使用魔法」的極端利己主義。然而內心深處依舊善良，最終為了救贖絕望魔女化的沙耶香而選擇與之同歸於盡。</p>
+                </div>
+            </div>
+        </div>
+        <!-- 少女與戰車 區塊 -->
+        <div class="anime-card">
+            <h2 class="gup-title">少女與戰車（ガールズ＆パンツァー）</h2>
+            <p>
+                由大洗町作為背景設定、Actas 公司製作的熱血軍事體育動畫。在這個世界觀中，駕駛二戰時期戰車進行模擬交戰的「戰車道」，與花道、茶道並列為大和撫子必修的傳統文化。主角西住美穗為了逃避戰車道而轉學至大洗女子學園，卻因學校面臨廢校危機，不得不再次帶領團隊在全國大賽中迎戰各大傳統強校。
+            </p>
+            <div class="tag-container">
+                <span class="tag tag-gup">軍事</span>
+                <span class="tag tag-gup">校園運動</span>
+                <span class="tag tag-gup">戰車道</span>
+                <span class="tag tag-gup">大洗女子學園</span>
+            </div>
+
+            <div class="team-image-container">
+                <img src="https://vrm.dev" alt="鮟鱇隊成員" class="team-image">
+                <div class="image-caption">核心主角隊伍：大洗女子學園 戰車道部「鮟鱇隊」五位成員</div>
+            </div>
+
+            <div class="table-title">🪖 大洗女子學園 戰車道部核心成員名單</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>分隊名稱</th>
+                            <th>主要隊員</th>
+                            <th>車內職位</th>
+                            <th>使用戰車車型</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="5" style="font-weight: bold; color: #d23669;">鮟鱇隊<br>(主角隊)</td>
+                            <td>西住美穗</td>
+                            <td>車長 (兼總隊長)</td>
+                            <td rowspan="5">四號戰車 H型<br>(Panzer IV Ausf. H)</td>
+                        </tr>
+                        <tr>
+                            <td>武部沙織</td>
+                            <td>通訊手</td>
+                        </tr>
+                        <tr>
+                            <td>五十鈴華</td>
+                            <td>砲手</td>
+                        </tr>
+                        <tr>
+                            <td>秋山優花里</td>
+                            <td>裝填手</td>
+                        </tr>
+                        <tr>
+                            <td>冷泉麻子</td>
+                            <td>駕駛員</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">烏龜隊 (學生會)</td>
+                            <td>角谷杏 / 小山柚子 / 河嶋桃</td>
+                            <td>車長 / 駕駛 / 砲手</td>
+                            <td>38(t)戰車改 / 追獵者式</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">河馬隊 (歷女)</td>
+                            <td>凱撒 / 埃爾文 / 左衛門佐 / 阿龍</td>
+                            <td>裝填 / 車長 / 砲手 / 駕駛</td>
+                            <td>三號突擊戰車 F型</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">鴨子隊 (排球部)</td>
+                            <td>磯邊典子 / 近藤妙子 / 河西忍 / 佐佐木明比</td>
+                            <td>車長 / 通訊 / 駕駛 / 砲手</td>
+                            <td>八九式中戰車 甲型</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">兔子隊 (一年級)</td>
+                            <td>澤梓 / 山鄉步 / 丸山紗希 / 阪口桂利奈 等</td>
+                            <td>車長 / 砲手 / 觀察手 / 駕駛</td>
+                            <td>M3李中戰車</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">食蟻獸隊 (網遊)</td>
+                            <td>貓喵 / 桃佳 / ぴよたん</td>
+                            <td>車長 / 駕駛 / 砲手</td>
+                            <td>三式中戰車 Chi-Nu</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
     <footer>
